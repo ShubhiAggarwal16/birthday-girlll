@@ -2148,7 +2148,36 @@ Here's to another beautiful year of us creating unforgettable memories together!
       }
 
       async function loadSavedData() {
-        // 1. Load legacy / immediate photos from localStorage (Scene 1 & 2 user photos)
+        // Built-in media mapping (permanent files in assets/)
+        const DEFAULT_MEDIA = {
+          's1-p1': { url: 'assets/s1_p1.jpg', isVideo: false },
+          's1-p2': { url: 'assets/s1_p2.jpg', isVideo: false },
+          's1-p3': { url: 'assets/s1_p3.png', isVideo: false },
+          's2-p1': { url: 'assets/s2_p1.png', isVideo: false },
+          's2-p2': { url: 'assets/s2_p2.jpg', isVideo: false },
+          's2-p3': { url: 'assets/s2_p3.jpg', isVideo: false },
+          's2-p4': { url: 'assets/s2_p4.jpg', isVideo: false },
+          's3-film1': { url: 'assets/s3_film1.mp4', isVideo: true },
+          's3-film2': { url: 'assets/s3_film2.mp4', isVideo: true },
+          's3-film3': { url: 'assets/s3_film3.mp4', isVideo: true },
+          's3-film-wide': { url: 'assets/s3_film1.mp4', isVideo: true },
+          's4-big': { url: 'assets/s4_big.jpg', isVideo: false },
+          's4-p1': { url: 'assets/s4_p1.jpg', isVideo: false },
+          's4-p2': { url: 'assets/s4_p2.jpg', isVideo: false },
+          's4-p3': { url: 'assets/s4_p3.png', isVideo: false },
+          's5-final': { url: 'assets/s5_final.jpg', isVideo: false }
+        };
+
+        // Preload default media first so every slot has Shubhi's photos & videos
+        Object.keys(DEFAULT_MEDIA).forEach(slotId => {
+          const item = DEFAULT_MEDIA[slotId];
+          applyMediaToSlot(slotId, item.url, item.isVideo);
+          if (item.isVideo) {
+            mediaBlobs[slotId] = { isVideo: true, url: item.url };
+          }
+        });
+
+        // 1. Load legacy / immediate photos from localStorage (Scene 1 & 2 user photos override if customized)
         try {
           const stored = localStorage.getItem(STORAGE_KEY_PHOTOS);
           if (stored) {
