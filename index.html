@@ -1,0 +1,2654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Birthday Shubhi ✨ | Vintage Scrapbook</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Homemade+Apple&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Special+Elite&display=swap" rel="stylesheet">
+  
+  <style>
+    /* =========================================================
+       CSS RESET & VARIABLES
+       ========================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    :root {
+      --bg-chocolate: #261710;
+      --bg-chocolate-deep: #1d100a;
+      --polka-dot: rgba(245, 237, 224, 0.16);
+      --cream: #faf5ed;
+      --cream-dark: #eee4d3;
+      --parchment: #f6eedf;
+      --parchment-border: #d8c7ad;
+      --ink: #322119;
+      --ink-soft: #5b463a;
+      --tape-kraft: rgba(214, 184, 150, 0.72);
+      --tape-cream: rgba(250, 243, 230, 0.75);
+      --tape-rose: rgba(230, 190, 185, 0.75);
+      --stamp-edge: #f0e6d6;
+      --gold-accent: #c89d58;
+      --lace-color: rgba(253, 248, 240, 0.85);
+      --shadow-paper: 0 8px 20px rgba(10, 5, 2, 0.38), 0 2px 6px rgba(10, 5, 2, 0.22);
+      --shadow-polaroid: 0 10px 25px rgba(15, 7, 3, 0.45), 0 3px 8px rgba(15, 7, 3, 0.3);
+      --film-bg: #141110;
+      --film-sprocket: #f5eedf;
+      --font-script: 'Homemade Apple', cursive;
+      --font-serif: 'Playfair Display', serif;
+      --font-typewriter: 'Special Elite', monospace;
+      --font-hand: 'Caveat', cursive;
+    }
+
+    body {
+      background-color: #120b07;
+      color: var(--ink);
+      font-family: var(--font-serif);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    /* Screen Wrapper (Desktop Center Container) */
+    .app-viewport {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      max-width: 440px;
+      max-height: 780px;
+      aspect-ratio: 9 / 16;
+      background-color: var(--bg-chocolate);
+      background-image: 
+        radial-gradient(var(--polka-dot) 1.8px, transparent 1.8px),
+        radial-gradient(var(--polka-dot) 1.8px, var(--bg-chocolate) 1.8px);
+      background-size: 26px 26px;
+      background-position: 0 0, 13px 13px;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 240, 220, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 480px) {
+      .app-viewport {
+        max-width: 100vw;
+        max-height: 100vh;
+        height: 100dvh;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+
+    /* Subtle Paper Grain & Vignette Overlay */
+    .vignette-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(12, 6, 3, 0.6) 100%);
+      z-index: 50;
+    }
+
+    /* =========================================================
+       TOP CONTROLS & TIMELINE
+       ========================================================= */
+    .top-controls {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 14px 8px;
+      z-index: 80;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: linear-gradient(180deg, rgba(20, 10, 6, 0.75) 0%, rgba(20, 10, 6, 0.3) 65%, transparent 100%);
+    }
+
+    .story-indicators {
+      display: flex;
+      gap: 5px;
+      width: 100%;
+    }
+
+    .story-bar {
+      flex: 1;
+      height: 3.5px;
+      background: rgba(255, 245, 230, 0.28);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .story-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: #faf4e8;
+      border-radius: 999px;
+      transition: width 0.05s linear;
+      box-shadow: 0 0 6px rgba(255, 245, 230, 0.7);
+    }
+
+    .top-action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sound-badge-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(246, 238, 223, 0.92);
+      border: 1px dashed #b89d7d;
+      color: var(--ink);
+      font-family: var(--font-hand);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .sound-badge-btn:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .sound-badge-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--ink);
+    }
+
+    .music-playing-indicator {
+      display: flex;
+      gap: 2px;
+      align-items: flex-end;
+      height: 12px;
+    }
+
+    .music-playing-indicator span {
+      width: 2.5px;
+      background: #b54938;
+      border-radius: 1px;
+      animation: soundBar 0.7s infinite alternate ease-in-out;
+    }
+    .music-playing-indicator span:nth-child(2) { animation-delay: 0.2s; height: 10px; }
+    .music-playing-indicator span:nth-child(3) { animation-delay: 0.4s; height: 6px; }
+
+    @keyframes soundBar {
+      0% { height: 3px; }
+      100% { height: 12px; }
+    }
+
+    .scene-counter {
+      font-family: var(--font-hand);
+      font-size: 15px;
+      color: #faf2e3;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+
+    /* =========================================================
+       BOTTOM SCRAPBOOK CONTROLS
+       ========================================================= */
+    .bottom-controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 14px 14px;
+      z-index: 80;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(0deg, rgba(20, 10, 6, 0.85) 0%, rgba(20, 10, 6, 0.35) 60%, transparent 100%);
+    }
+
+    .control-cluster {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .vintage-ctrl-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1.5px solid #c9b49a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .vintage-ctrl-btn:hover {
+      transform: scale(1.08) translateY(-2px);
+      background: #fff;
+    }
+
+    .vintage-ctrl-btn:active {
+      transform: scale(0.95);
+    }
+
+    .vintage-ctrl-btn svg {
+      width: 17px;
+      height: 17px;
+      fill: var(--ink);
+    }
+
+    .play-pause-btn {
+      width: 44px;
+      height: 44px;
+      background: #faf4e8;
+      border: 2px solid #b89d7d;
+    }
+    .play-pause-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .edit-tip-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(246, 238, 223, 0.85);
+      border: 1px dashed #b89d7d;
+      color: var(--ink);
+      font-family: var(--font-hand);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* =========================================================
+       SCENE STAGE & TRANSITIONS
+       ========================================================= */
+    .scrapbook-stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .scene {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 55px 16px 65px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      transform: scale(0.96) translateY(20px);
+    }
+
+    .scene.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: scale(1) translateY(0);
+      z-index: 10;
+    }
+
+    .scene.exit-left {
+      opacity: 0;
+      transform: translateX(-50px) rotate(-3deg) scale(0.94);
+      transition: opacity 0.5s ease, transform 0.6s ease;
+    }
+
+    /* =========================================================
+       SHARED SCRAPBOOK DECORATIONS (Washi tape, lace, stamps)
+       ========================================================= */
+    /* Washi Tape Strips */
+    .washi-tape {
+      position: absolute;
+      height: 24px;
+      background-color: var(--tape-kraft);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+      z-index: 25;
+      pointer-events: none;
+      clip-path: polygon(
+        0% 4%, 4% 0%, 96% 0%, 100% 4%, 97% 12%, 100% 20%, 96% 28%, 100% 36%, 97% 44%, 100% 52%, 96% 60%, 100% 68%, 97% 76%, 100% 84%, 96% 92%, 100% 100%,
+        96% 96%, 4% 96%, 0% 100%, 3% 92%, 0% 84%, 4% 76%, 0% 68%, 3% 60%, 0% 52%, 4% 44%, 0% 36%, 3% 28%, 0% 20%, 4% 12%
+      );
+    }
+
+    .washi-cream {
+      background-color: var(--tape-cream);
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(190, 160, 130, 0.2) 5px, rgba(190, 160, 130, 0.2) 10px);
+    }
+
+    .washi-rose {
+      background-color: var(--tape-rose);
+      background-image: radial-gradient(rgba(255, 255, 255, 0.45) 1.5px, transparent 1.5px);
+      background-size: 8px 8px;
+    }
+
+    /* Corner Lace SVG Decor */
+    .lace-corner {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      pointer-events: none;
+      z-index: 20;
+      opacity: 0.88;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+    }
+
+    .lace-top-left { top: 40px; left: 0; }
+    .lace-top-right { top: 40px; right: 0; transform: scaleX(-1); }
+    .lace-bottom-left { bottom: 45px; left: 0; transform: scaleY(-1); }
+    .lace-bottom-right { bottom: 45px; right: 0; transform: scale(-1); }
+
+    /* Lace Border on the Right (Scene 1 requirement) */
+    .lace-vertical-border-right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 32px;
+      background-repeat: repeat-y;
+      background-size: 32px 64px;
+      pointer-events: none;
+      z-index: 15;
+      opacity: 0.82;
+      filter: drop-shadow(-2px 0 4px rgba(0, 0, 0, 0.25));
+    }
+
+    /* Idle Floating / Swaying Stickers (Scene elements) */
+    .floating-sticker {
+      position: absolute;
+      z-index: 30;
+      pointer-events: none;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+    }
+
+    .flower-sticker {
+      width: 58px;
+      height: 58px;
+      animation: floatSway 4.8s infinite ease-in-out;
+    }
+
+    .camera-sticker {
+      width: 62px;
+      height: 52px;
+      animation: floatSwayReverse 5.2s infinite ease-in-out;
+    }
+
+    .lucky-me-badge {
+      width: 76px;
+      height: 76px;
+      animation: gentlePulse 3.8s infinite ease-in-out;
+    }
+
+    @keyframes floatSway {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(5deg) scale(1.02); }
+    }
+
+    @keyframes floatSwayReverse {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(-4.5deg) scale(1.02); }
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1) rotate(6deg); }
+      50% { transform: scale(1.04) rotate(4deg); }
+    }
+
+    /* =========================================================
+       PHOTO SLOTS ENGINE (VERY IMPORTANT)
+       ========================================================= */
+    .photo-slot {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #2b221d;
+      transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.2), box-shadow 0.25s ease;
+    }
+
+    .photo-slot:hover {
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Locked Image & Video In Slot */
+    .slot-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+      display: block;
+      z-index: 2;
+    }
+
+    .slot-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+      display: none;
+      z-index: 2;
+      border-radius: inherit;
+    }
+
+    /* Sound Toggle for Video Clips */
+    .slot-audio-toggle {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(26, 16, 11, 0.88);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(250, 240, 225, 0.6);
+      color: #faf3e6;
+      font-size: 11px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      z-index: 8;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .slot-audio-toggle:hover {
+      transform: scale(1.15);
+      background: #b54938;
+      border-color: #fff;
+    }
+
+    /* Empty Placeholder state */
+    .empty-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: radial-gradient(circle at center, rgba(250, 243, 230, 0.12), rgba(35, 23, 17, 0.4));
+      border: 1.5px dashed rgba(240, 226, 204, 0.45);
+      border-radius: 4px;
+      z-index: 1;
+      padding: 8px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .photo-slot:hover .empty-placeholder {
+      background: radial-gradient(circle at center, rgba(250, 243, 230, 0.22), rgba(35, 23, 17, 0.5));
+      border-color: rgba(240, 226, 204, 0.8);
+    }
+
+    .empty-placeholder .plus-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(250, 244, 235, 0.85);
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .empty-placeholder .slot-label {
+      font-family: var(--font-hand);
+      font-size: 13px;
+      font-weight: 700;
+      color: #faf3e6;
+      text-align: center;
+      line-height: 1.15;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+
+    /* "Change Media" Subtle Floating Button */
+    .change-photo-badge {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: rgba(26, 16, 11, 0.85);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(250, 240, 225, 0.5);
+      color: #faf3e6;
+      font-family: var(--font-hand);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 12px;
+      z-index: 6;
+      display: none;
+      align-items: center;
+      gap: 3px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .change-photo-badge svg {
+      width: 10px;
+      height: 10px;
+      fill: #faf3e6;
+    }
+
+    .photo-slot.has-image .empty-placeholder,
+    .photo-slot.has-media .empty-placeholder {
+      display: none;
+    }
+
+    .photo-slot.has-image .change-photo-badge,
+    .photo-slot.has-media .change-photo-badge {
+      display: flex;
+    }
+
+    .photo-slot.is-video .slot-audio-toggle {
+      display: flex;
+    }
+
+    .photo-slot.has-image:hover .change-photo-badge,
+    .photo-slot.has-media:hover .change-photo-badge {
+      background: rgba(181, 73, 56, 0.95);
+      border-color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Film Strip Mode Switcher */
+    .film-mode-bar {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      z-index: 20;
+    }
+
+    .film-mode-btn {
+      background: rgba(250, 244, 235, 0.9);
+      border: 1px dashed #b89d7d;
+      color: var(--ink);
+      font-family: var(--font-hand);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      transition: all 0.2s ease;
+    }
+
+    .film-mode-btn:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .film-mode-btn.active {
+      background: #322119;
+      color: #faf4e8;
+      border: 1px solid #cbb497;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    /* Wide Cinema Film Frame */
+    .wide-film-box {
+      width: 100%;
+      height: 120px;
+      background: #090807;
+      padding: 4px;
+      position: relative;
+      border-radius: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .wide-film-box .photo-slot {
+      width: 100%;
+      height: 100%;
+      border-radius: 1px;
+    }
+
+    /* Polaroid Outer Frame Style */
+    .polaroid-frame {
+      background: var(--cream);
+      padding: 8px 8px 24px 8px;
+      box-shadow: var(--shadow-polaroid);
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .polaroid-frame .caption-text {
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: var(--font-hand);
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      pointer-events: none;
+    }
+
+    /* Postage Stamp Outer Frame Style */
+    .stamp-frame {
+      position: relative;
+      background: #fdfaf4;
+      padding: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+    }
+    
+    .stamp-perforations {
+      position: absolute;
+      inset: -4px;
+      pointer-events: none;
+      border: 3px dotted #d6c0a6;
+      border-radius: 2px;
+      z-index: 4;
+    }
+
+    /* =========================================================
+       SCENE 1: "Birthday You!"
+       ========================================================= */
+    #scene1 {
+      justify-content: flex-start;
+      gap: 12px;
+      padding-top: 55px;
+    }
+
+    .scene1-header {
+      text-align: center;
+      margin-bottom: 4px;
+      animation: paperDropIn 0.8s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+    }
+
+    .script-title {
+      font-family: var(--font-script);
+      font-size: 32px;
+      color: #faf3e6;
+      line-height: 1.25;
+      text-shadow: 2px 3px 0px rgba(25, 14, 8, 0.8), 0 0 15px rgba(250, 240, 220, 0.3);
+      display: block;
+      transform: rotate(-2deg);
+    }
+
+    .script-subtitle {
+      font-family: var(--font-hand);
+      font-size: 17px;
+      color: #dfcdb7;
+      letter-spacing: 1px;
+      display: block;
+      margin-top: -2px;
+    }
+
+    .scene1-layout {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Polaroid 1 (Left tilt) */
+    .s1-polaroid-1 {
+      position: absolute;
+      top: 15px;
+      left: 12px;
+      width: 165px;
+      height: 200px;
+      transform: rotate(-7deg);
+      z-index: 3;
+      animation: polaroidDrop1 0.9s cubic-bezier(0.18, 0.89, 0.32, 1.25) forwards;
+    }
+    .s1-polaroid-1 .photo-slot {
+      width: 100%;
+      height: 165px;
+    }
+
+    /* Polaroid 2 (Right tilt) */
+    .s1-polaroid-2 {
+      position: absolute;
+      top: 35px;
+      right: 25px;
+      width: 170px;
+      height: 205px;
+      transform: rotate(6deg);
+      z-index: 4;
+      animation: polaroidDrop2 1.05s cubic-bezier(0.18, 0.89, 0.32, 1.25) forwards;
+    }
+    .s1-polaroid-2 .photo-slot {
+      width: 100%;
+      height: 170px;
+    }
+
+    /* Framed Photo 3 (Bottom center) */
+    .s1-small-framed {
+      position: absolute;
+      bottom: 25px;
+      left: 70px;
+      width: 175px;
+      height: 195px;
+      background: #faf4e8;
+      padding: 10px;
+      border: 2px solid #bba183;
+      box-shadow: var(--shadow-polaroid);
+      transform: rotate(-2deg);
+      z-index: 5;
+      border-radius: 4px;
+      animation: paperDropIn 1.15s cubic-bezier(0.18, 0.89, 0.32, 1.25) forwards;
+    }
+    .s1-small-framed .photo-slot {
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    @keyframes polaroidDrop1 {
+      0% { transform: translateY(-70px) rotate(-16deg) scale(0.85); opacity: 0; }
+      100% { transform: translateY(0) rotate(-7deg) scale(1); opacity: 1; }
+    }
+
+    @keyframes polaroidDrop2 {
+      0% { transform: translateY(-80px) rotate(18deg) scale(0.85); opacity: 0; }
+      100% { transform: translateY(0) rotate(6deg) scale(1); opacity: 1; }
+    }
+
+    @keyframes paperDropIn {
+      0% { transform: translateY(-40px) scale(0.9); opacity: 0; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    /* =========================================================
+       SCENE 2: Open Diary / Book Layout
+       ========================================================= */
+    #scene2 {
+      padding: 50px 10px 55px;
+    }
+
+    .diary-book {
+      position: relative;
+      width: 100%;
+      height: 92%;
+      background: #fbf7ee;
+      border-radius: 8px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), inset 0 0 40px rgba(180, 150, 115, 0.22);
+      display: flex;
+      overflow: hidden;
+      border: 1px solid #d4c2a7;
+    }
+
+    /* Center Book Crease / Spine */
+    .diary-spine {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 22px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, 
+        rgba(0,0,0,0.18) 0%, 
+        rgba(0,0,0,0.03) 30%, 
+        rgba(255,255,255,0.4) 50%, 
+        rgba(0,0,0,0.03) 70%, 
+        rgba(0,0,0,0.18) 100%);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* Bookmark Ribbon */
+    .diary-ribbon {
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      width: 14px;
+      height: 90px;
+      background: #b54938;
+      transform: translateX(-50%);
+      z-index: 12;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.35);
+      clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
+      pointer-events: none;
+    }
+
+    .diary-page {
+      flex: 1;
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+    }
+
+    .diary-page.left-page {
+      padding-right: 14px;
+      background: linear-gradient(90deg, #f7f1e4 0%, #faf5ec 85%, #ede2d1 100%);
+      border-right: 1px solid rgba(190, 165, 135, 0.35);
+    }
+
+    .diary-page.right-page {
+      padding-left: 14px;
+      background: linear-gradient(270deg, #f7f1e4 0%, #faf5ec 85%, #ede2d1 100%);
+    }
+
+    .page-title {
+      font-family: var(--font-script);
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 6px;
+      opacity: 0.85;
+    }
+
+    /* Left Page Hero Photo */
+    .diary-hero-photo {
+      width: 100%;
+      flex: 1;
+      max-height: 380px;
+      background: #fff;
+      padding: 6px;
+      border: 1px solid #d5c3aa;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      position: relative;
+      transform: rotate(-1deg);
+      margin-top: 10px;
+    }
+    .diary-hero-photo .photo-slot {
+      width: 100%;
+      height: 100%;
+    }
+
+    .left-page-note {
+      font-family: var(--font-hand);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      line-height: 1.25;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    /* Right Page 3 Stamp Photos */
+    .stamped-photos-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+      justify-content: space-around;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stamp-item {
+      position: relative;
+      width: 100%;
+      height: 110px;
+      background: #fdfaf4;
+      padding: 6px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+      border: 1px dashed #c4ad90;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .stamp-item:nth-child(1) { transform: rotate(1.5deg); }
+    .stamp-item:nth-child(2) { transform: rotate(-2deg); }
+    .stamp-item:nth-child(3) { transform: rotate(2deg); }
+
+    .stamp-item .photo-slot {
+      width: 100%;
+      height: 100%;
+    }
+
+    .postal-mark {
+      position: absolute;
+      bottom: -6px;
+      right: 4px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(160, 50, 40, 0.6);
+      color: rgba(160, 50, 40, 0.7);
+      font-family: var(--font-typewriter);
+      font-size: 8px;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-15deg);
+      pointer-events: none;
+      z-index: 6;
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    /* =========================================================
+       SCENE 3: Postcard & Film Strip
+       ========================================================= */
+    #scene3 {
+      gap: 10px;
+      justify-content: flex-start;
+      padding-top: 50px;
+    }
+
+    .scene3-film-wrapper {
+      position: relative;
+      width: 100%;
+      margin-bottom: 6px;
+      animation: filmScrollIn 0.9s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+    }
+
+    @keyframes filmScrollIn {
+      0% { transform: translateY(-50px) scale(0.95); opacity: 0; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    /* Realistic Vintage 35mm Film Strip */
+    .film-strip {
+      background: var(--film-bg);
+      border-radius: 4px;
+      padding: 10px 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+      border: 1px solid #332a24;
+    }
+
+    .sprocket-row {
+      display: flex;
+      justify-content: space-between;
+      height: 9px;
+      padding: 0 4px;
+    }
+
+    .sprocket-hole {
+      width: 10px;
+      height: 7px;
+      background: var(--cream);
+      border-radius: 1.5px;
+      opacity: 0.85;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    .film-frames-track {
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .film-frame-box {
+      flex: 1;
+      height: 108px;
+      background: #090807;
+      padding: 4px;
+      position: relative;
+      border-radius: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .film-frame-number {
+      position: absolute;
+      bottom: -15px;
+      right: 2px;
+      font-family: monospace;
+      font-size: 8px;
+      color: #df9e51;
+      letter-spacing: 0.5px;
+    }
+
+    .film-frame-box .photo-slot {
+      width: 100%;
+      height: 100%;
+      border-radius: 1px;
+    }
+
+    /* Vintage Postcard */
+    .postcard-container {
+      position: relative;
+      width: 100%;
+      flex: 1;
+      max-height: 380px;
+      background: #fbf6ec;
+      border-radius: 6px;
+      box-shadow: var(--shadow-polaroid);
+      border: 1px solid #cfbea5;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        repeating-linear-gradient(transparent, transparent 27px, rgba(200, 180, 150, 0.25) 28px);
+      background-size: 100% 28px;
+      background-position: 0 35px;
+      transform: rotate(-0.5deg);
+    }
+
+    .postcard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid rgba(180, 150, 120, 0.4);
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+
+    .postcard-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    .postcard-stamp-box {
+      width: 48px;
+      height: 58px;
+      background: #fff;
+      border: 1.5px dashed #b84938;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-typewriter);
+      font-size: 9px;
+      color: #b84938;
+      line-height: 1.2;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transform: rotate(3deg);
+    }
+
+    /* Editable Handwritten Postcard Message */
+    .postcard-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .editable-handwritten-note {
+      font-family: var(--font-script);
+      font-size: 17px;
+      line-height: 1.65;
+      color: #2b1a11;
+      width: 100%;
+      height: 100%;
+      outline: none;
+      border: none;
+      background: transparent;
+      resize: none;
+      cursor: text;
+      padding: 4px 2px;
+      user-select: text;
+      overflow-y: auto;
+    }
+
+    .editable-handwritten-note:focus {
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 4px;
+    }
+
+    .postcard-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 4px;
+      border-top: 1px dashed rgba(180, 150, 120, 0.3);
+      padding-top: 4px;
+    }
+
+    .postcard-from {
+      font-family: var(--font-hand);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .postcard-hint {
+      font-family: var(--font-hand);
+      font-size: 11px;
+      color: #9c806a;
+    }
+
+    /* =========================================================
+       SCENE 4: Lace-Framed Collage
+       ========================================================= */
+    #scene4 {
+      padding-top: 50px;
+      gap: 12px;
+    }
+
+    .collage-board {
+      position: relative;
+      width: 100%;
+      height: 480px;
+    }
+
+    /* Big Lace-Framed Photo */
+    .lace-hero-frame {
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      width: 220px;
+      height: 250px;
+      background: #faf4e8;
+      padding: 12px;
+      box-shadow: var(--shadow-polaroid);
+      border-radius: 4px;
+      transform: rotate(-3deg);
+      z-index: 4;
+      border: 4px double #cfbba3;
+    }
+
+    .lace-hero-frame .photo-slot {
+      width: 100%;
+      height: 100%;
+      border-radius: 2px;
+    }
+
+    .lace-frame-decor {
+      position: absolute;
+      inset: -8px;
+      border: 2px dashed rgba(200, 175, 145, 0.7);
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    /* 3 Small Collage Photos */
+    .collage-small-1 {
+      position: absolute;
+      top: 20px;
+      right: 12px;
+      width: 130px;
+      height: 140px;
+      background: #fbf7ef;
+      padding: 7px;
+      box-shadow: var(--shadow-paper);
+      transform: rotate(5deg);
+      z-index: 5;
+    }
+    .collage-small-1 .photo-slot { width: 100%; height: 100%; }
+
+    .collage-small-2 {
+      position: absolute;
+      top: 180px;
+      right: 18px;
+      width: 135px;
+      height: 145px;
+      background: #fbf7ef;
+      padding: 7px;
+      box-shadow: var(--shadow-paper);
+      transform: rotate(-4deg);
+      z-index: 6;
+    }
+    .collage-small-2 .photo-slot { width: 100%; height: 100%; }
+
+    .collage-small-3 {
+      position: absolute;
+      bottom: 75px;
+      left: 20px;
+      width: 140px;
+      height: 135px;
+      background: #fbf7ef;
+      padding: 7px;
+      box-shadow: var(--shadow-paper);
+      transform: rotate(3deg);
+      z-index: 7;
+    }
+    .collage-small-3 .photo-slot { width: 100%; height: 100%; }
+
+    /* Romantic Note Card */
+    .favourite-person-note {
+      position: absolute;
+      bottom: 25px;
+      right: 14px;
+      width: 210px;
+      background: #faf4e8;
+      border: 1px dashed #c4af96;
+      box-shadow: var(--shadow-paper);
+      padding: 12px 14px 10px;
+      transform: rotate(-2deg);
+      z-index: 10;
+      border-radius: 3px;
+    }
+
+    .favourite-person-text {
+      font-family: var(--font-script);
+      font-size: 16px;
+      line-height: 1.45;
+      color: var(--ink);
+      text-align: center;
+      display: block;
+    }
+
+    /* =========================================================
+       SCENE 5: Grand Finale "Happy Birthday Shubhi"
+       ========================================================= */
+    #scene5 {
+      justify-content: center;
+      gap: 16px;
+      padding: 50px 16px 55px;
+      text-align: center;
+    }
+
+    .scene5-celebration {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .finale-script-title {
+      font-family: var(--font-script);
+      font-size: 34px;
+      color: #faf4e8;
+      line-height: 1.25;
+      text-shadow: 2px 3px 0px rgba(25, 14, 8, 0.8), 0 0 25px rgba(250, 235, 210, 0.45);
+      margin-bottom: 6px;
+      transform: rotate(-1.5deg);
+      cursor: pointer;
+    }
+
+    .editable-name-highlight {
+      border-bottom: 2px dashed rgba(240, 220, 190, 0.6);
+      padding-bottom: 2px;
+      outline: none;
+      user-select: text;
+    }
+
+    .editable-name-highlight:focus {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    .finale-subtitle {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 15px;
+      color: #e0d0bc;
+      margin-bottom: 16px;
+      max-width: 320px;
+      line-height: 1.35;
+    }
+
+    /* Main Centerpiece Photo */
+    .finale-photo-card {
+      width: 290px;
+      height: 350px;
+      background: var(--cream);
+      padding: 12px 12px 42px 12px;
+      border-radius: 4px;
+      box-shadow: 0 18px 40px rgba(10, 5, 2, 0.6), 0 0 30px rgba(240, 220, 190, 0.2);
+      transform: rotate(1deg);
+      position: relative;
+      animation: finaleFloat 4.5s infinite ease-in-out;
+    }
+
+    @keyframes finaleFloat {
+      0%, 100% { transform: translateY(0) rotate(1deg); }
+      50% { transform: translateY(-8px) rotate(-0.5deg); }
+    }
+
+    .finale-photo-card .photo-slot {
+      width: 100%;
+      height: 100%;
+      border-radius: 2px;
+    }
+
+    .finale-card-caption {
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      right: 0;
+      font-family: var(--font-hand);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .finale-love-tag {
+      margin-top: 16px;
+      font-family: var(--font-hand);
+      font-size: 19px;
+      color: #faf3e6;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Sparkling Stars & Hearts Particles */
+    .sparkle-particle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 28;
+      animation: sparkleTwinkle 2.8s infinite ease-in-out;
+    }
+
+    @keyframes sparkleTwinkle {
+      0%, 100% { transform: scale(0.6) rotate(0deg); opacity: 0.3; }
+      50% { transform: scale(1.15) rotate(180deg); opacity: 0.95; }
+    }
+
+    /* =========================================================
+       MODALS & EDIT NOTIFICATION TOAST
+       ========================================================= */
+    .toast-pill {
+      position: absolute;
+      top: 55px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: rgba(250, 244, 235, 0.95);
+      border: 1px solid #cbb69e;
+      color: var(--ink);
+      font-family: var(--font-hand);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .toast-pill.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* =============================================
+       FINAL LOCK MODE — hide all editing controls
+       ============================================= */
+    .change-photo-badge { display: none !important; }
+    #samplePhotosBtn { display: none !important; }
+    .film-mode-bar { display: none !important; }
+    .postcard-hint { display: none !important; }
+    .edit-tip-btn { display: none !important; }
+    .slot-audio-toggle { display: none !important; }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Music Player Element -->
+  <audio id="bgAudio" loop preload="auto"></audio>
+  <!-- Hidden Pickers -->
+  <input type="file" id="musicPicker" accept="audio/*" hidden>
+
+  <!-- Main 9:16 App Viewport -->
+  <main class="app-viewport" id="viewport">
+    
+    <!-- Paper Vignette Overlay -->
+    <div class="vignette-overlay"></div>
+
+    <!-- Notification Toast -->
+    <div class="toast-pill" id="toastPill">Photo added! Saved to memory ✨</div>
+
+    <!-- TOP CONTROLS & STORY TIMELINE -->
+    <header class="top-controls">
+      <div class="story-indicators">
+        <div class="story-bar" data-scene="0"><div class="story-bar-fill"></div></div>
+        <div class="story-bar" data-scene="1"><div class="story-bar-fill"></div></div>
+        <div class="story-bar" data-scene="2"><div class="story-bar-fill"></div></div>
+        <div class="story-bar" data-scene="3"><div class="story-bar-fill"></div></div>
+        <div class="story-bar" data-scene="4"><div class="story-bar-fill"></div></div>
+      </div>
+
+      <div class="top-action-bar">
+        <button class="sound-badge-btn" id="musicBtn" title="Upload or play background song">
+          <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          <span id="musicBtnText">Add Song 🎵</span>
+          <div class="music-playing-indicator" id="musicBars" style="display: none;">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+
+        <div class="scene-counter" id="sceneCounter">1 / 5</div>
+      </div>
+    </header>
+
+    <!-- FLOATING IDLE ELEMENTS (Always swaying smoothly in foreground) -->
+    <!-- Botanical Flower Sticker -->
+    <div class="floating-sticker flower-sticker" style="bottom: 75px; left: 16px;">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="42" fill="#faf4e8" stroke="#d5c1a7" stroke-width="2"/>
+        <!-- Stem & leaves -->
+        <path d="M50 78 C50 62 48 45 52 35" stroke="#5a684b" stroke-width="3" stroke-linecap="round"/>
+        <path d="M50 58 Q36 50 38 42 Q48 46 50 56" fill="#758763" stroke="#5a684b" stroke-width="1"/>
+        <path d="M51 48 Q64 42 63 34 Q53 38 51 46" fill="#758763" stroke="#5a684b" stroke-width="1"/>
+        <!-- Wild Rose Petals -->
+        <circle cx="52" cy="27" r="9" fill="#e8a89f" opacity="0.95"/>
+        <circle cx="43" cy="33" r="9" fill="#df948a" opacity="0.95"/>
+        <circle cx="61" cy="33" r="9" fill="#df948a" opacity="0.95"/>
+        <circle cx="46" cy="42" r="9" fill="#d98479" opacity="0.95"/>
+        <circle cx="58" cy="42" r="9" fill="#d98479" opacity="0.95"/>
+        <circle cx="52" cy="35" r="5.5" fill="#f4cf68" stroke="#a67c1e" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <!-- Retro Camera Sticker -->
+    <div class="floating-sticker camera-sticker" style="top: 85px; right: 14px;">
+      <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Body shadow & base -->
+        <rect x="5" y="15" width="90" height="60" rx="8" fill="#faf4e8" stroke="#cbb497" stroke-width="2"/>
+        <rect x="10" y="20" width="80" height="50" rx="6" fill="#3a2b22"/>
+        <rect x="10" y="32" width="80" height="26" fill="#b57a55" opacity="0.85"/>
+        <!-- Shutter & Flash -->
+        <rect x="20" y="8" width="16" height="8" rx="2" fill="#cbb497"/>
+        <circle cx="75" cy="27" r="4" fill="#f4cf68" stroke="#fff" stroke-width="1"/>
+        <rect x="22" y="24" width="8" height="5" rx="1" fill="#cbb497"/>
+        <!-- Lens rings -->
+        <circle cx="50" cy="45" r="20" fill="#faf4e8"/>
+        <circle cx="50" cy="45" r="17" fill="#1f1712"/>
+        <circle cx="50" cy="45" r="12" fill="#352922" stroke="#bba385" stroke-width="1"/>
+        <circle cx="46" cy="41" r="3.5" fill="#fff" opacity="0.75"/>
+      </svg>
+    </div>
+
+    <!-- SCRAPBOOK STAGE (5 SCENES) -->
+    <div class="scrapbook-stage" id="stage">
+
+      <!-- ==========================================
+           SCENE 1: "Birthday You!"
+           3 Photo slots (2 Polaroids + 1 small framed)
+           Lace border on the right
+           ========================================== -->
+      <section class="scene active" id="scene1">
+        <!-- Right Lace Border (SVG Pattern) -->
+        <div class="lace-vertical-border-right" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'64\' viewBox=\'0 0 32 64\'><path d=\'M0,0 Q16,8 0,16 Q24,24 0,32 Q16,40 0,48 Q24,56 0,64\' fill=\'none\' stroke=\'%23fdf8f0\' stroke-width=\'2.5\' opacity=\'0.85\'/><circle cx=\'10\' cy=\'16\' r=\'2.5\' fill=\'%23fdf8f0\'/><circle cx=\'10\' cy=\'48\' r=\'2.5\' fill=\'%23fdf8f0\'/><circle cx=\'18\' cy=\'32\' r=\'3\' fill=\'%23fdf8f0\'/></svg>');"></div>
+
+        <div class="scene1-header">
+          <h1 class="script-title">Birthday You!</h1>
+          <span class="script-subtitle">celebrating the loveliest soul ✨</span>
+        </div>
+
+        <div class="scene1-layout">
+          <!-- Washi tape pinning polaroid 1 -->
+          <div class="washi-tape washi-rose" style="width: 75px; top: 5px; left: 55px; transform: rotate(-10deg);"></div>
+
+          <!-- Polaroid 1 (Left tilt) -->
+          <div class="polaroid-frame s1-polaroid-1">
+            <div class="photo-slot" data-slot="s1-p1">
+              <input type="file" accept="image/*" class="photo-input" hidden>
+              <div class="empty-placeholder">
+                <span class="plus-icon">+</span>
+                <span class="slot-label">Add Photo</span>
+              </div>
+              <img class="slot-image" alt="Scrapbook photo" style="display:none;" draggable="false">
+              <button class="change-photo-badge">
+                <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> Change
+              </button>
+            </div>
+            <span class="caption-text">pure smile ✨</span>
+          </div>
+
+          <!-- Washi tape pinning polaroid 2 -->
+          <div class="washi-tape washi-cream" style="width: 80px; top: 22px; right: 60px; transform: rotate(12deg);"></div>
+
+          <!-- Polaroid 2 (Right tilt) -->
+          <div class="polaroid-frame s1-polaroid-2">
+            <div class="photo-slot" data-slot="s1-p2">
+              <input type="file" accept="image/*" class="photo-input" hidden>
+              <div class="empty-placeholder">
+                <span class="plus-icon">+</span>
+                <span class="slot-label">Add Photo</span>
+              </div>
+              <img class="slot-image" alt="Scrapbook photo" style="display:none;" draggable="false">
+              <button class="change-photo-badge">
+                <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> Change
+              </button>
+            </div>
+            <span class="caption-text">sunshine girl 🌸</span>
+          </div>
+
+          <!-- Photo 3 (Small ornate frame at bottom) -->
+          <div class="s1-small-framed">
+            <div class="washi-tape" style="width: 65px; top: -10px; left: 45px; transform: rotate(3deg);"></div>
+            <div class="photo-slot" data-slot="s1-p3">
+              <input type="file" accept="image/*" class="photo-input" hidden>
+              <div class="empty-placeholder">
+                <span class="plus-icon">+</span>
+                <span class="slot-label">Add Photo</span>
+              </div>
+              <img class="slot-image" alt="Scrapbook photo" style="display:none;" draggable="false">
+              <button class="change-photo-badge">
+                <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> Change
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SCENE 2: Open Diary / Book Layout
+           1 big photo left page
+           2-3 small stamped photos right page
+           "Lucky Me!" sticker
+           ========================================== -->
+      <section class="scene" id="scene2">
+        <div class="diary-book">
+          <!-- Spine & Ribbon -->
+          <div class="diary-spine"></div>
+          <div class="diary-ribbon"></div>
+
+          <!-- Left Page: 1 Big Photo -->
+          <div class="diary-page left-page">
+            <span class="page-title">My Sanctuary</span>
+            
+            <div class="diary-hero-photo">
+              <!-- Corner tapes -->
+              <div class="washi-tape washi-cream" style="width: 48px; top: -6px; left: -10px; transform: rotate(-35deg);"></div>
+              <div class="washi-tape washi-cream" style="width: 48px; bottom: -6px; right: -10px; transform: rotate(-35deg);"></div>
+
+              <div class="photo-slot" data-slot="s2-p1">
+                <input type="file" accept="image/*" class="photo-input" hidden>
+                <div class="empty-placeholder">
+                  <span class="plus-icon">+</span>
+                  <span class="slot-label">Add Big Photo</span>
+                </div>
+                <img class="slot-image" alt="Diary photo" style="display:none;" draggable="false">
+                <button class="change-photo-badge">
+                  <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg> Change
+                </button>
+              </div>
+            </div>
+
+            <p class="left-page-note">Every page with you is my favourite chapter in life 📖✨</p>
+          </div>
+
+          <!-- Right Page: 3 Stamped Photos + "Lucky Me!" Badge -->
+          <div class="diary-page right-page">
+            <span class="page-title" style="text-align: right;">Sweet Keepsakes</span>
+
+            <div class="stamped-photos-grid">
+              <!-- Stamped Photo 1 -->
+              <div class="stamp-item">
+                <div class="stamp-perforations"></div>
+                <div class="photo-slot" data-slot="s2-p2">
+                  <input type="file" accept="image/*" class="photo-input" hidden>
+                  <div class="empty-placeholder">
+                    <span class="plus-icon">+</span>
+                    <span class="slot-label">Stamp 1</span>
+                  </div>
+                  <img class="slot-image" alt="Stamp photo" style="display:none;" draggable="false">
+                  <button class="change-photo-badge">
+                    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg> Edit
+                  </button>
+                </div>
+              </div>
+
+              <!-- Stamped Photo 2 -->
+              <div class="stamp-item">
+                <div class="stamp-perforations"></div>
+                <div class="postal-mark">PAR AVION<br>LOVE AIR</div>
+                <div class="photo-slot" data-slot="s2-p3">
+                  <input type="file" accept="image/*" class="photo-input" hidden>
+                  <div class="empty-placeholder">
+                    <span class="plus-icon">+</span>
+                    <span class="slot-label">Stamp 2</span>
+                  </div>
+                  <img class="slot-image" alt="Stamp photo" style="display:none;" draggable="false">
+                  <button class="change-photo-badge">
+                    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg> Edit
+                  </button>
+                </div>
+              </div>
+
+              <!-- Stamped Photo 3 -->
+              <div class="stamp-item">
+                <div class="stamp-perforations"></div>
+                <div class="photo-slot" data-slot="s2-p4">
+                  <input type="file" accept="image/*" class="photo-input" hidden>
+                  <div class="empty-placeholder">
+                    <span class="plus-icon">+</span>
+                    <span class="slot-label">Stamp 3</span>
+                  </div>
+                  <img class="slot-image" alt="Stamp photo" style="display:none;" draggable="false">
+                  <button class="change-photo-badge">
+                    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg> Edit
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- "Lucky Me!" Vintage Scrapbook Sticker -->
+            <div class="floating-sticker lucky-me-badge" style="bottom: 12px; right: -12px;">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Scalloped Gold/Crimson Stamp -->
+                <circle cx="50" cy="50" r="44" fill="#b54938" stroke="#f6eedf" stroke-width="3"/>
+                <circle cx="50" cy="50" r="39" fill="none" stroke="#f6eedf" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <path d="M22 48 Q50 36 78 48 L74 65 Q50 56 26 65 Z" fill="#faf4e8" stroke="#8b2f22" stroke-width="1"/>
+                <text x="50" y="42" font-family="'Caveat', cursive" font-size="16" font-weight="bold" fill="#faf4e8" text-anchor="middle">SO</text>
+                <text x="50" y="58" font-family="'Special Elite', monospace" font-size="12" font-weight="bold" fill="#8b2f22" text-anchor="middle">LUCKY ME!</text>
+                <text x="50" y="74" font-family="'Caveat', cursive" font-size="18" fill="#faf4e8" text-anchor="middle">★ ★ ★</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SCENE 3: Postcard + Film Strip
+           Postcard with handwritten editable birthday message
+           Film strip holding 3 video clips / photos or 1 wide reel
+           ========================================== -->
+      <section class="scene" id="scene3">
+        <!-- Film Strip Mode Selector -->
+        <div class="film-mode-bar">
+          <button type="button" class="film-mode-btn active" id="btnMode3Frames">🎞️ 3 Mini Clips / Photos</button>
+          <button type="button" class="film-mode-btn" id="btnMode1Wide">🎬 1 Wide Reel Video</button>
+          <button type="button" class="film-mode-btn" id="btnUploadVideoDirect" style="background:#b54938; color:#fff; border:1px solid #fff; font-weight:bold;">📹 Add Video</button>
+        </div>
+        <input type="file" id="directVideoPicker" accept="video/mp4,video/quicktime,video/webm,video/*,.mp4,.mov,.webm,.m4v,.mkv" hidden>
+
+        <!-- 35mm Film Strip -->
+        <div class="scene3-film-wrapper">
+          <div class="film-strip">
+            <!-- Top sprocket row -->
+            <div class="sprocket-row">
+              <span class="sprocket-hole"></span><span class="sprocket-hole"></span><span class="sprocket-hole"></span>
+              <span class="sprocket-hole"></span><span class="sprocket-hole"></span><span class="sprocket-hole"></span>
+              <span class="sprocket-hole"></span><span class="sprocket-hole"></span><span class="sprocket-hole"></span>
+            </div>
+
+            <!-- Track 1: 3 Film frames (Default) -->
+            <div class="film-frames-track" id="filmTrack3">
+              <!-- Film Slot 1 -->
+              <div class="film-frame-box">
+                <div class="photo-slot" data-slot="s3-film1">
+                  <input type="file" accept="video/*,image/*" class="photo-input" hidden>
+                  <div class="empty-placeholder">
+                    <span class="plus-icon">🎥</span>
+                    <span class="slot-label">Film 01<br><small style="font-size:10px; opacity:0.85;">Video/Photo</small></span>
+                  </div>
+                  <img class="slot-image" alt="Film photo" style="display:none;" draggable="false">
+                  <video class="slot-video" autoplay loop muted playsinline style="display:none;"></video>
+                  <button class="change-photo-badge">
+                    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg> Change
+                  </button>
+                  <button class="slot-audio-toggle" title="Video sound on/off">🔇</button>
+                </div>
+                <span class="film-frame-number">01 ▶</span>
+              </div>
+
+              <!-- Film Slot 2 -->
+              <div class="film-frame-box">
+                <div class="photo-slot" data-slot="s3-film2">
+                  <input type="file" accept="video/*,image/*" class="photo-input" hidden>
+                  <div class="empty-placeholder">
+                    <span class="plus-icon">🎥</span>
+                    <span class="slot-label">Film 02<br><small style="font-size:10px; opacity:0.85;">Video/Photo</small></span>
+                  </div>
+                  <img class="slot-image" alt="Film photo" style="display:none;" draggable="false">
+                  <video class="slot-video" autoplay loop muted playsinline style="display:none;"></video>
+                  <button class="change-photo-badge">
+                    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg> Change
+                  </button>
+                  <button class="slot-audio-toggle" title="Video sound on/off">🔇</button>
+                </div>
+                <span class="film-frame-number">02 ▶</span>
+              </div>
+
+              <!-- Film Slot 3 -->
+              <div class="film-frame-box">
+                <div class="photo-slot" data-slot="s3-film3">
+                  <input type="file" accept="video/*,image/*" class="photo-input" hidden>
+                  <div class="empty-placeholder">
+                    <span class="plus-icon">🎥</span>
+                    <span class="slot-label">Film 03<br><small style="font-size:10px; opacity:0.85;">Video/Photo</small></span>
+                  </div>
+                  <img class="slot-image" alt="Film photo" style="display:none;" draggable="false">
+                  <video class="slot-video" autoplay loop muted playsinline style="display:none;"></video>
+                  <button class="change-photo-badge">
+                    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg> Change
+                  </button>
+                  <button class="slot-audio-toggle" title="Video sound on/off">🔇</button>
+                </div>
+                <span class="film-frame-number">03 ▶</span>
+              </div>
+            </div>
+
+            <!-- Track 2: 1 Wide Panoramic Film Frame (Alternate mode) -->
+            <div class="film-frames-track-wide" id="filmTrackWide" style="display:none;">
+              <div class="wide-film-box">
+                <div class="photo-slot" data-slot="s3-film-wide">
+                  <input type="file" accept="video/*,image/*" class="photo-input" hidden>
+                  <div class="empty-placeholder">
+                    <span class="plus-icon" style="font-size: 20px;">🎬</span>
+                    <span class="slot-label" style="font-size: 14px;">+ Upload Full Reel Video / Photo</span>
+                  </div>
+                  <img class="slot-image" alt="Film wide photo" style="display:none;" draggable="false">
+                  <video class="slot-video" autoplay loop muted playsinline style="display:none;"></video>
+                  <button class="change-photo-badge">
+                    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg> Change
+                  </button>
+                  <button class="slot-audio-toggle" title="Video sound on/off">🔇</button>
+                </div>
+                <span class="film-frame-number" style="bottom:-15px; right:4px;">WIDE REEL 35MM ▶</span>
+              </div>
+            </div>
+
+            <!-- Bottom sprocket row -->
+            <div class="sprocket-row">
+              <span class="sprocket-hole"></span><span class="sprocket-hole"></span><span class="sprocket-hole"></span>
+              <span class="sprocket-hole"></span><span class="sprocket-hole"></span><span class="sprocket-hole"></span>
+              <span class="sprocket-hole"></span><span class="sprocket-hole"></span><span class="sprocket-hole"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vintage Postcard with Editable Birthday Note -->
+        <div class="postcard-container">
+          <div class="washi-tape washi-rose" style="width: 80px; top: -10px; right: 40px; transform: rotate(5deg);"></div>
+
+          <div class="postcard-header">
+            <div>
+              <div class="postcard-title">Carte Postale</div>
+              <span style="font-family: var(--font-typewriter); font-size: 10px; color: #8e715b;">AIR MAIL • SPECIAL DELIVERY</span>
+            </div>
+            <div class="postcard-stamp-box">
+              <span>SPECIAL</span>
+              <span style="font-size: 14px; font-weight: bold; margin: 2px 0;">OCT</span>
+              <span>100% LOVE</span>
+            </div>
+          </div>
+
+          <div class="postcard-body">
+            <!-- Contenteditable box for custom note -->
+            <div 
+              class="editable-handwritten-note" 
+              id="postcardNote" 
+              contenteditable="true" 
+              spellcheck="false"
+              title="Click here to edit your message!"
+            >To my dearest Shubhi,
+
+Happy Birthday to the girl who turns ordinary days into sweet poetry. Thank you for your warmth, your contagious laughter, and for being the gentlest part of my universe.
+
+Here's to another beautiful year of us creating unforgettable memories together! ✨</div>
+          </div>
+
+          <div class="postcard-footer">
+            <div class="postcard-from">Forever yours ❤️</div>
+            <div class="postcard-hint">✎ Tap text to edit</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SCENE 4: Lace-Framed Collage
+           1 Big photo + 3 small photos
+           Note: "You will always be my favourite person"
+           ========================================== -->
+      <section class="scene" id="scene4">
+        <!-- Corner Lace Accents -->
+        <div class="lace-corner lace-top-left">
+          <svg viewBox="0 0 100 100" fill="none"><path d="M0 0 L100 0 Q60 20 40 40 Q20 60 0 100 Z" fill="var(--lace-color)"/><circle cx="20" cy="20" r="4" fill="#2b1e16"/><circle cx="50" cy="15" r="3" fill="#2b1e16"/><circle cx="15" cy="50" r="3" fill="#2b1e16"/></svg>
+        </div>
+
+        <div class="collage-board">
+          <!-- 1 Big Hero Photo with Lace Borders -->
+          <div class="lace-hero-frame">
+            <div class="lace-frame-decor"></div>
+            <div class="washi-tape washi-kraft" style="width: 75px; top: -12px; left: 65px; transform: rotate(-5deg);"></div>
+            <div class="photo-slot" data-slot="s4-big">
+              <input type="file" accept="image/*" class="photo-input" hidden>
+              <div class="empty-placeholder">
+                <span class="plus-icon">+</span>
+                <span class="slot-label">Add Hero Photo</span>
+              </div>
+              <img class="slot-image" alt="Hero photo" style="display:none;" draggable="false">
+              <button class="change-photo-badge">
+                <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg> Change
+              </button>
+            </div>
+          </div>
+
+          <!-- Small Photo 1 (Top Right) -->
+          <div class="collage-small-1">
+            <div class="washi-tape washi-cream" style="width: 50px; top: -8px; right: 15px; transform: rotate(15deg);"></div>
+            <div class="photo-slot" data-slot="s4-p1">
+              <input type="file" accept="image/*" class="photo-input" hidden>
+              <div class="empty-placeholder">
+                <span class="plus-icon">+</span>
+                <span class="slot-label">Photo 1</span>
+              </div>
+              <img class="slot-image" alt="Collage photo" style="display:none;" draggable="false">
+              <button class="change-photo-badge">
+                <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Small Photo 2 (Mid Right) -->
+          <div class="collage-small-2">
+            <div class="washi-tape washi-rose" style="width: 55px; top: -8px; left: 15px; transform: rotate(-10deg);"></div>
+            <div class="photo-slot" data-slot="s4-p2">
+              <input type="file" accept="image/*" class="photo-input" hidden>
+              <div class="empty-placeholder">
+                <span class="plus-icon">+</span>
+                <span class="slot-label">Photo 2</span>
+              </div>
+              <img class="slot-image" alt="Collage photo" style="display:none;" draggable="false">
+              <button class="change-photo-badge">
+                <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Small Photo 3 (Bottom Left) -->
+          <div class="collage-small-3">
+            <div class="washi-tape washi-cream" style="width: 50px; bottom: -8px; left: 25px; transform: rotate(5deg);"></div>
+            <div class="photo-slot" data-slot="s4-p3">
+              <input type="file" accept="image/*" class="photo-input" hidden>
+              <div class="empty-placeholder">
+                <span class="plus-icon">+</span>
+                <span class="slot-label">Photo 3</span>
+              </div>
+              <img class="slot-image" alt="Collage photo" style="display:none;" draggable="false">
+              <button class="change-photo-badge">
+                <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Romantic Note Card -->
+          <div class="favourite-person-note">
+            <div class="washi-tape washi-kraft" style="width: 70px; top: -10px; left: 65px; transform: rotate(2deg);"></div>
+            <span class="favourite-person-text">"You will always be my favourite person"</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SCENE 5: Grand Finale
+           "Happy Birthday Shubhi" + 1 Photo
+           Sparkles & celebration
+           ========================================== -->
+      <section class="scene" id="scene5">
+        <!-- Floating celebration stars -->
+        <div class="sparkle-particle" style="top: 75px; left: 35px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#faf2e3"><polygon points="12,0 15,9 24,12 15,15 12,24 9,15 0,12 9,9"/></svg>
+        </div>
+        <div class="sparkle-particle" style="top: 140px; right: 30px; animation-delay: 1.2s;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#f4cf68"><polygon points="12,0 15,9 24,12 15,15 12,24 9,15 0,12 9,9"/></svg>
+        </div>
+        <div class="sparkle-particle" style="bottom: 95px; left: 45px; animation-delay: 0.7s;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#f4cf68"><polygon points="12,0 15,9 24,12 15,15 12,24 9,15 0,12 9,9"/></svg>
+        </div>
+
+        <div class="scene5-celebration">
+          <h2 class="finale-script-title" title="Tap name to edit!">
+            Happy Birthday <span class="editable-name-highlight" id="girlfriendName" contenteditable="true" spellcheck="false">Shubhi</span>!
+          </h2>
+          <p class="finale-subtitle">Wishing you endless joy, stardust, and laughter today and always 🎂✨</p>
+
+          <!-- 1 Grand Finale Hero Photo -->
+          <div class="finale-photo-card">
+            <!-- Washi tape at top -->
+            <div class="washi-tape washi-rose" style="width: 100px; top: -10px; left: 95px; transform: rotate(-3deg);"></div>
+            <div class="photo-slot" data-slot="s5-final">
+              <input type="file" accept="image/*" class="photo-input" hidden>
+              <div class="empty-placeholder">
+                <span class="plus-icon" style="width: 36px; height: 36px; font-size: 24px;">+</span>
+                <span class="slot-label" style="font-size: 15px;">Add Birthday Photo</span>
+              </div>
+              <img class="slot-image" alt="Birthday girl photo" style="display:none;" draggable="false">
+              <button class="change-photo-badge">
+                <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg> Change Photo
+              </button>
+            </div>
+            <div class="finale-card-caption">The Birthday Queen 👑</div>
+          </div>
+
+          <div class="finale-love-tag">With all my love, always & forever ❤️</div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- BOTTOM CONTROLS (Play, Pause, Restart, Quick Actions) -->
+    <footer class="bottom-controls">
+      <div class="control-cluster">
+        <!-- Restart Loop -->
+        <button class="vintage-ctrl-btn" id="restartBtn" title="Restart video from Scene 1">
+          <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+        </button>
+
+        <!-- Previous Scene -->
+        <button class="vintage-ctrl-btn" id="prevBtn" title="Previous scene">
+          <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+        </button>
+
+        <!-- Play / Pause -->
+        <button class="vintage-ctrl-btn play-pause-btn" id="playPauseBtn" title="Play / Pause video">
+          <svg id="playIcon" viewBox="0 0 24 24" style="display: none;"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="pauseIcon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+
+        <!-- Next Scene -->
+        <button class="vintage-ctrl-btn" id="nextBtn" title="Next scene">
+          <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+        </button>
+      </div>
+
+      <!-- Quick Reset / Demo Photos Helper -->
+      <button class="edit-tip-btn" id="samplePhotosBtn" title="Load sample aesthetic vintage photos for testing">
+        <span>✨ Sample Photos</span>
+      </button>
+    </footer>
+
+  </main>
+
+  <!-- =========================================================
+       SCRAPBOOK CONTROLLER & STORAGE ENGINE (JS)
+       ========================================================= */ -->
+  <script>
+    (function() {
+      // Configuration
+      const SCENE_DURATION_MS = 8000; // ~8 seconds per scene (slowed down)
+      const TOTAL_SCENES = 5;
+      const STORAGE_KEY_PHOTOS = 'shubhi_scrapbook_photos_v1';
+      const STORAGE_KEY_NAME = 'shubhi_scrapbook_name_v1';
+      const STORAGE_KEY_POSTCARD = 'shubhi_scrapbook_postcard_v1';
+
+      // State
+      let currentScene = 0;
+      let isPlaying = true;
+      let sceneProgress = 0; // 0 to 1 for active scene
+      let lastTimestamp = 0;
+      let animationFrameId = null;
+      let photoStore = {}; // slotId -> dataUrl (fallback / legacy)
+      let mediaBlobs = {}; // slotId -> { isVideo: boolean, url: string }
+
+      // IndexedDB Configuration for High-Capacity Video & Photo Storage
+      const DB_NAME = 'ShubhiScrapbookDB_v2';
+      const DB_VERSION = 1;
+      const STORE_NAME = 'media_files';
+
+      function openMediaDB() {
+        return new Promise((resolve) => {
+          if (!window.indexedDB) {
+            resolve(null);
+            return;
+          }
+          const request = indexedDB.open(DB_NAME, DB_VERSION);
+          request.onupgradeneeded = (e) => {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+              db.createObjectStore(STORE_NAME);
+            }
+          };
+          request.onsuccess = () => resolve(request.result);
+          request.onerror = () => resolve(null);
+        });
+      }
+
+      async function saveMediaItem(slotId, file) {
+        const db = await openMediaDB();
+        if (!db) return false;
+        return new Promise((resolve) => {
+          try {
+            const tx = db.transaction(STORE_NAME, 'readwrite');
+            const isVideo = file.type.startsWith('video/');
+            tx.objectStore(STORE_NAME).put({
+              blob: file,
+              isVideo: isVideo,
+              mime: file.type,
+              name: file.name
+            }, slotId);
+            tx.oncomplete = () => resolve(true);
+            tx.onerror = () => resolve(false);
+          } catch(e) {
+            resolve(false);
+          }
+        });
+      }
+
+      async function loadAllStoredMedia() {
+        const db = await openMediaDB();
+        if (!db) return {};
+        return new Promise((resolve) => {
+          try {
+            const tx = db.transaction(STORE_NAME, 'readonly');
+            const store = tx.objectStore(STORE_NAME);
+            const req = store.openCursor();
+            const results = {};
+            req.onsuccess = (e) => {
+              const cursor = e.target.result;
+              if (cursor) {
+                results[cursor.key] = cursor.value;
+                cursor.continue();
+              } else {
+                resolve(results);
+              }
+            };
+            req.onerror = () => resolve({});
+          } catch(e) {
+            resolve({});
+          }
+        });
+      }
+
+      // DOM Elements
+      const scenes = [
+        document.getElementById('scene1'),
+        document.getElementById('scene2'),
+        document.getElementById('scene3'),
+        document.getElementById('scene4'),
+        document.getElementById('scene5')
+      ];
+      const storyBars = document.querySelectorAll('.story-bar');
+      const storyFills = document.querySelectorAll('.story-bar-fill');
+      const sceneCounter = document.getElementById('sceneCounter');
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const playIcon = document.getElementById('playIcon');
+      const pauseIcon = document.getElementById('pauseIcon');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const restartBtn = document.getElementById('restartBtn');
+      const musicBtn = document.getElementById('musicBtn');
+      const musicPicker = document.getElementById('musicPicker');
+      const bgAudio = document.getElementById('bgAudio');
+      const musicBars = document.getElementById('musicBars');
+      const musicBtnText = document.getElementById('musicBtnText');
+      const toastPill = document.getElementById('toastPill');
+      const samplePhotosBtn = document.getElementById('samplePhotosBtn');
+      const girlfriendName = document.getElementById('girlfriendName');
+      const postcardNote = document.getElementById('postcardNote');
+
+      // Sample aesthetic vintage portrait SVGs for testing/preview
+      const sampleGradients = [
+        'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="700" viewBox="0 0 600 700"><defs><radialGradient id="g" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="%23f7e1cb"/><stop offset="50%" stop-color="%23e2b29f"/><stop offset="100%" stop-color="%239c6352"/></radialGradient></defs><rect width="600" height="700" fill="url(%23g)"/><circle cx="300" cy="280" r="110" fill="%23fff" opacity="0.25"/><text x="300" y="300" font-family="serif" font-size="28" fill="%23fff" text-anchor="middle" font-style="italic">Shubhi ✨</text></svg>',
+        'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="700" viewBox="0 0 600 700"><defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23dfaf90"/><stop offset="50%" stop-color="%23b87968"/><stop offset="100%" stop-color="%23683a31"/></linearGradient></defs><rect width="600" height="700" fill="url(%23g2)"/><text x="300" y="360" font-family="serif" font-size="28" fill="%23fff" text-anchor="middle" font-style="italic">Golden Hour ☕</text></svg>',
+        'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="700" viewBox="0 0 600 700"><defs><radialGradient id="g3" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23ecd2ba"/><stop offset="60%" stop-color="%23c49079"/><stop offset="100%" stop-color="%23704237"/></radialGradient></defs><rect width="600" height="700" fill="url(%23g3)"/><text x="300" y="360" font-family="serif" font-size="28" fill="%23fff" text-anchor="middle" font-style="italic">Favorite Smile 🌸</text></svg>'
+      ];
+
+      /* =========================================================
+         INITIALIZATION & STORAGE
+         ========================================================= */
+      async function init() {
+        await loadSavedData();
+        setupPhotoSlots();
+        setupStoryBars();
+        setupAudioPlayer();
+        setupControls();
+        setupEditableFields();
+
+        // Auto-load bundled song
+        bgAudio.src = 'song.mp3';
+        bgAudio.volume = 0.75;
+        bgAudio.loop = true;
+        bgAudio.play().then(() => {
+          if (musicBars) musicBars.style.display = 'flex';
+          if (musicBtnText) musicBtnText.textContent = 'we fell in love ♪';
+        }).catch(() => {
+          // Autoplay blocked — resume on first tap
+          showToast('Tap anywhere to play music 🎵');
+          document.addEventListener('click', () => {
+            bgAudio.play().then(() => {
+              if (musicBars) musicBars.style.display = 'flex';
+              if (musicBtnText) musicBtnText.textContent = 'we fell in love ♪';
+            }).catch(() => {});
+          }, { once: true });
+        });
+
+        // Start animation loop
+        lastTimestamp = performance.now();
+        animationFrameId = requestAnimationFrame(gameLoop);
+      }
+
+      function showToast(msg) {
+        toastPill.textContent = msg;
+        toastPill.classList.add('visible');
+        setTimeout(() => toastPill.classList.remove('visible'), 2400);
+      }
+
+      async function loadSavedData() {
+        // 1. Load legacy / immediate photos from localStorage (Scene 1 & 2 user photos)
+        try {
+          const stored = localStorage.getItem(STORAGE_KEY_PHOTOS);
+          if (stored) {
+            photoStore = JSON.parse(stored);
+            Object.keys(photoStore).forEach(slotId => {
+              applyMediaToSlot(slotId, photoStore[slotId], false);
+            });
+          }
+        } catch (e) {
+          console.warn('Storage unavailable or quota exceeded:', e);
+        }
+
+        // 2. Load stored videos & images from IndexedDB (persists across refreshes)
+        try {
+          const storedMedia = await loadAllStoredMedia();
+          Object.keys(storedMedia).forEach(slotId => {
+            const item = storedMedia[slotId];
+            if (item && item.blob) {
+              const url = URL.createObjectURL(item.blob);
+              mediaBlobs[slotId] = { isVideo: item.isVideo, url: url };
+              applyMediaToSlot(slotId, url, item.isVideo);
+            }
+          });
+        } catch (e) {
+          console.warn('IndexedDB load error:', e);
+        }
+
+        // 3. Load custom name
+        try {
+          const savedName = localStorage.getItem(STORAGE_KEY_NAME);
+          if (savedName && girlfriendName) {
+            girlfriendName.textContent = savedName;
+          }
+        } catch(e) {}
+
+        // 4. Load custom postcard
+        try {
+          const savedNote = localStorage.getItem(STORAGE_KEY_POSTCARD);
+          if (savedNote && postcardNote) {
+            postcardNote.textContent = savedNote;
+          }
+        } catch(e) {}
+      }
+
+      function setupEditableFields() {
+        if (girlfriendName) {
+          girlfriendName.addEventListener('blur', () => {
+            const val = girlfriendName.textContent.trim() || 'Shubhi';
+            girlfriendName.textContent = val;
+            try { localStorage.setItem(STORAGE_KEY_NAME, val); } catch(e){}
+            showToast('Saved name: ' + val + ' ❤️');
+          });
+          girlfriendName.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              girlfriendName.blur();
+            }
+          });
+        }
+
+        if (postcardNote) {
+          postcardNote.addEventListener('blur', () => {
+            const val = postcardNote.textContent.trim();
+            try { localStorage.setItem(STORAGE_KEY_POSTCARD, val); } catch(e){}
+            showToast('Message saved! 💌');
+          });
+        }
+      }
+
+      /* =========================================================
+         MEDIA & SLOTS LOGIC (VIDEO + PHOTO ENGINE)
+         ========================================================= */
+      function setupPhotoSlots() {
+        const slots = document.querySelectorAll('.photo-slot');
+
+        slots.forEach(slot => {
+          const slotId = slot.dataset.slot;
+          const input = slot.querySelector('.photo-input');
+          const changeBtn = slot.querySelector('.change-photo-badge');
+          const audioToggle = slot.querySelector('.slot-audio-toggle');
+
+          // Ensure input accepts both videos and images
+          if (input) {
+            input.accept = 'video/mp4,video/quicktime,video/webm,video/*,image/*,.mp4,.mov,.webm,.m4v,.mkv,.avi,.png,.jpg,.jpeg,.heic';
+          }
+
+          // Trigger file picker when slot or change badge is clicked
+          slot.addEventListener('click', (e) => {
+            if (e.target.closest('.slot-audio-toggle')) return;
+            e.stopPropagation();
+            if (input) {
+              input.value = '';
+              input.click();
+            }
+          });
+
+          if (changeBtn) {
+            changeBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              if (input) {
+                input.value = '';
+                input.click();
+              }
+            });
+          }
+
+          // Audio Mute/Unmute for Video in this slot
+          if (audioToggle) {
+            audioToggle.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const video = slot.querySelector('.slot-video');
+              if (video) {
+                video.muted = !video.muted;
+                audioToggle.textContent = video.muted ? '🔇' : '🔊';
+                showToast(video.muted ? 'Video Muted 🔇' : 'Video Sound ON 🔊');
+              }
+            });
+          }
+
+          // Handle File Selection (Video or Image)
+          if (input) {
+            input.addEventListener('change', async (e) => {
+              const file = e.target.files && e.target.files[0];
+              if (!file) return;
+
+              // Bulletproof video detection (handles empty file.type from iPhone/Windows)
+              const isVideo = (file.type && file.type.startsWith('video/')) || 
+                              /\.(mp4|mov|webm|m4v|avi|mkv|3gp|flv|wmv)$/i.test(file.name || '');
+
+              if (isVideo) {
+                // Instant load using blob URL
+                const objUrl = URL.createObjectURL(file);
+                mediaBlobs[slotId] = { isVideo: true, url: objUrl };
+                applyMediaToSlot(slotId, objUrl, true);
+                showToast('Video locked into film frame! 🎥✨');
+                // Persist asynchronously in IndexedDB
+                saveMediaItem(slotId, file).catch(() => {});
+              } else {
+                // Image handling
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                  const dataUrl = evt.target.result;
+                  photoStore[slotId] = dataUrl;
+                  try {
+                    localStorage.setItem(STORAGE_KEY_PHOTOS, JSON.stringify(photoStore));
+                  } catch (err) {}
+                  applyMediaToSlot(slotId, dataUrl, false);
+                  showToast('Photo locked into frame! 📷✨');
+                };
+                reader.readAsDataURL(file);
+                saveMediaItem(slotId, file).catch(() => {});
+              }
+            });
+          }
+        });
+
+        // Scene 3 Film Strip Mode Switcher
+        const btnMode3 = document.getElementById('btnMode3Frames');
+        const btnModeWide = document.getElementById('btnMode1Wide');
+        const track3 = document.getElementById('filmTrack3');
+        const trackWide = document.getElementById('filmTrackWide');
+
+        if (btnMode3 && btnModeWide && track3 && trackWide) {
+          btnMode3.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btnMode3.classList.add('active');
+            btnModeWide.classList.remove('active');
+            track3.style.display = 'flex';
+            trackWide.style.display = 'none';
+            try { localStorage.setItem('shubhi_film_mode', '3frames'); } catch(e){}
+            syncVideosState();
+          });
+
+          btnModeWide.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btnModeWide.classList.add('active');
+            btnMode3.classList.remove('active');
+            track3.style.display = 'none';
+            trackWide.style.display = 'block';
+            try { localStorage.setItem('shubhi_film_mode', 'wide'); } catch(e){}
+            syncVideosState();
+          });
+
+          // Restore saved mode if previously chosen
+          try {
+            const savedMode = localStorage.getItem('shubhi_film_mode');
+            if (savedMode === 'wide') {
+              btnModeWide.classList.add('active');
+              btnMode3.classList.remove('active');
+              track3.style.display = 'none';
+              trackWide.style.display = 'block';
+            }
+          } catch(e){}
+        }
+
+        // Scene 3 Direct "Add Video" Button Handler
+        const btnDirect = document.getElementById('btnUploadVideoDirect');
+        const directPicker = document.getElementById('directVideoPicker');
+        if (btnDirect && directPicker) {
+          btnDirect.addEventListener('click', (e) => {
+            e.stopPropagation();
+            directPicker.value = '';
+            directPicker.click();
+          });
+
+          directPicker.addEventListener('change', (e) => {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+
+            let targetSlotId = 's3-film1';
+            if (trackWide && trackWide.style.display !== 'none') {
+              targetSlotId = 's3-film-wide';
+            } else {
+              const s1 = document.querySelector('.photo-slot[data-slot="s3-film1"]');
+              const s2 = document.querySelector('.photo-slot[data-slot="s3-film2"]');
+              const s3 = document.querySelector('.photo-slot[data-slot="s3-film3"]');
+              if (s1 && !s1.classList.contains('has-media')) targetSlotId = 's3-film1';
+              else if (s2 && !s2.classList.contains('has-media')) targetSlotId = 's3-film2';
+              else if (s3 && !s3.classList.contains('has-media')) targetSlotId = 's3-film3';
+              else targetSlotId = 's3-film1';
+            }
+
+            const objUrl = URL.createObjectURL(file);
+            mediaBlobs[targetSlotId] = { isVideo: true, url: objUrl };
+            applyMediaToSlot(targetSlotId, objUrl, true);
+            showToast('Video added to Film Strip! 🎥✨');
+            saveMediaItem(targetSlotId, file).catch(() => {});
+          });
+        }
+
+        // Sample photos filler button
+        if (samplePhotosBtn) {
+          samplePhotosBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            slots.forEach((slot, index) => {
+              const slotId = slot.dataset.slot;
+              const sampleImg = sampleGradients[index % sampleGradients.length];
+              photoStore[slotId] = sampleImg;
+              applyMediaToSlot(slotId, sampleImg, false);
+            });
+            try {
+              localStorage.setItem(STORAGE_KEY_PHOTOS, JSON.stringify(photoStore));
+            } catch(e) {}
+            showToast('Loaded sample aesthetic photos! 🌸');
+          });
+        }
+      }
+
+      function applyMediaToSlot(slotId, srcUrl, isVideo) {
+        const slot = document.querySelector(`.photo-slot[data-slot="${slotId}"]`);
+        if (!slot) return;
+
+        const img = slot.querySelector('.slot-image');
+        let video = slot.querySelector('.slot-video');
+        const audioToggle = slot.querySelector('.slot-audio-toggle');
+
+        if (isVideo) {
+          if (img) img.style.display = 'none';
+          if (!video) {
+            video = document.createElement('video');
+            video.className = 'slot-video';
+            slot.appendChild(video);
+          }
+          video.autoplay = true;
+          video.loop = true;
+          video.muted = true;
+          video.setAttribute('muted', '');
+          video.setAttribute('playsinline', '');
+          video.setAttribute('webkit-playsinline', '');
+          video.setAttribute('preload', 'auto');
+          video.src = srcUrl;
+          video.style.display = 'block';
+          video.load();
+          video.play().catch(e => {
+            console.log('Video autoplay deferred:', e);
+          });
+
+          slot.classList.add('has-media', 'is-video');
+          slot.classList.remove('has-image');
+
+          if (audioToggle) {
+            audioToggle.style.display = 'flex';
+            audioToggle.textContent = '🔇';
+          }
+
+          // Play immediately if this scene is active and playback is active
+          const parentScene = slot.closest('.scene');
+          if (parentScene && parentScene.classList.contains('active') && isPlaying) {
+            video.play().catch(() => {});
+          }
+        } else {
+          if (video) {
+            video.pause();
+            video.style.display = 'none';
+          }
+          if (img) {
+            img.src = srcUrl;
+            img.style.display = 'block';
+          }
+
+          slot.classList.add('has-media', 'has-image');
+          slot.classList.remove('is-video');
+
+          if (audioToggle) {
+            audioToggle.style.display = 'none';
+          }
+        }
+      }
+
+      function syncVideosState() {
+        scenes.forEach((sc, idx) => {
+          const videos = sc.querySelectorAll('video.slot-video');
+          videos.forEach(v => {
+            if (idx === currentScene && isPlaying) {
+              v.play().catch(() => {});
+            } else {
+              v.pause();
+            }
+          });
+        });
+      }
+
+      /* =========================================================
+         TIMELINE & SCENE ANIMATION LOOP
+         ========================================================= */
+      function gameLoop(timestamp) {
+        const delta = timestamp - lastTimestamp;
+        lastTimestamp = timestamp;
+
+        if (isPlaying) {
+          sceneProgress += delta / SCENE_DURATION_MS;
+
+          if (sceneProgress >= 1) {
+            sceneProgress = 0;
+            goToScene((currentScene + 1) % TOTAL_SCENES);
+          } else {
+            updateStoryBars();
+          }
+        }
+
+        animationFrameId = requestAnimationFrame(gameLoop);
+      }
+
+      function updateStoryBars() {
+        storyBars.forEach((bar, index) => {
+          const fill = storyFills[index];
+          if (index < currentScene) {
+            fill.style.width = '100%';
+          } else if (index === currentScene) {
+            fill.style.width = `${Math.min(sceneProgress * 100, 100)}%`;
+          } else {
+            fill.style.width = '0%';
+          }
+        });
+      }
+
+      function goToScene(index) {
+        if (index < 0 || index >= TOTAL_SCENES) return;
+
+        // Animate out previous scene
+        const prevSceneEl = scenes[currentScene];
+        if (prevSceneEl && currentScene !== index) {
+          prevSceneEl.classList.remove('active');
+          prevSceneEl.classList.add('exit-left');
+          setTimeout(() => {
+            prevSceneEl.classList.remove('exit-left');
+          }, 600);
+        }
+
+        currentScene = index;
+        sceneProgress = 0;
+
+        // Activate new scene
+        scenes.forEach((sc, idx) => {
+          if (idx === currentScene) {
+            sc.classList.add('active');
+          } else {
+            sc.classList.remove('active');
+          }
+        });
+
+        // Update indicator UI
+        sceneCounter.textContent = `${currentScene + 1} / ${TOTAL_SCENES}`;
+        updateStoryBars();
+
+        // Synchronize video playback with current scene
+        syncVideosState();
+      }
+
+      function setupStoryBars() {
+        storyBars.forEach((bar, index) => {
+          bar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            goToScene(index);
+          });
+        });
+      }
+
+      /* =========================================================
+         PLAYBACK CONTROLS
+         ========================================================= */
+      function setPlaying(playing) {
+        isPlaying = playing;
+        if (isPlaying) {
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'block';
+          if (bgAudio.src) {
+            bgAudio.play().catch(() => {});
+            musicBars.style.display = 'flex';
+          }
+        } else {
+          playIcon.style.display = 'block';
+          pauseIcon.style.display = 'none';
+          if (bgAudio.src) {
+            bgAudio.pause();
+            musicBars.style.display = 'none';
+          }
+        }
+        syncVideosState();
+      }
+
+      function setupControls() {
+        playPauseBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          setPlaying(!isPlaying);
+        });
+
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const target = currentScene === 0 ? TOTAL_SCENES - 1 : currentScene - 1;
+          goToScene(target);
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          goToScene((currentScene + 1) % TOTAL_SCENES);
+        });
+
+        restartBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          goToScene(0);
+          setPlaying(true);
+          showToast('Restarted from beginning! 🔄');
+        });
+
+        // Tap on stage background (excluding photo slots & buttons) to toggle play/pause
+        document.getElementById('stage').addEventListener('click', (e) => {
+          if (e.target.closest('.photo-slot') || e.target.closest('button') || e.target.closest('[contenteditable]')) {
+            return;
+          }
+          setPlaying(!isPlaying);
+        });
+      }
+
+      /* =========================================================
+         AUDIO / BACKGROUND MUSIC LOGIC
+         ========================================================= */
+      function setupAudioPlayer() {
+        musicBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (!bgAudio.src) {
+            musicPicker.click();
+          } else {
+            if (bgAudio.paused) {
+              bgAudio.play().then(() => {
+                musicBars.style.display = 'flex';
+                musicBtnText.textContent = 'Music Playing 🎶';
+              }).catch(() => {});
+            } else {
+              bgAudio.pause();
+              musicBars.style.display = 'none';
+              musicBtnText.textContent = 'Music Paused ⏸️';
+            }
+          }
+        });
+
+        musicBtn.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+          musicPicker.click();
+        });
+
+        musicPicker.addEventListener('change', (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+
+          const objectUrl = URL.createObjectURL(file);
+          bgAudio.src = objectUrl;
+          bgAudio.play().then(() => {
+            musicBars.style.display = 'flex';
+            musicBtnText.textContent = file.name.length > 12 ? file.name.slice(0, 10) + '… 🎵' : file.name + ' 🎵';
+            showToast('Playing your song! 🎵');
+          }).catch(err => {
+            showToast('Song loaded! Press play to hear.');
+          });
+        });
+      }
+
+      // Initialize Everything on DOM Load
+      window.addEventListener('DOMContentLoaded', init);
+    })();
+  </script>
+</body>
+</html>
