@@ -1989,7 +1989,7 @@ Here's to another beautiful year of us creating unforgettable memories together!
   <script>
     (function() {
       // Configuration
-      const SCENE_DURATION_MS = 8000; // ~8 seconds per scene (slowed down)
+      const SCENE_DURATION_MS = 11000; // ~11 seconds per scene (slowed down for relaxed viewing)
       const TOTAL_SCENES = 5;
       const STORAGE_KEY_PHOTOS = 'shubhi_scrapbook_photos_v1';
       const STORAGE_KEY_NAME = 'shubhi_scrapbook_name_v1';
@@ -2110,6 +2110,19 @@ Here's to another beautiful year of us creating unforgettable memories together!
       /* =========================================================
          INITIALIZATION & STORAGE
          ========================================================= */
+      function startMusic() {
+        if (!bgAudio.src) bgAudio.src = 'song.mp3';
+        bgAudio.volume = 0.85;
+        bgAudio.loop = true;
+        const playPromise = bgAudio.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            if (musicBars) musicBars.style.display = 'flex';
+            if (musicBtnText) musicBtnText.textContent = 'we fell in love ♪';
+          }).catch(() => {});
+        }
+      }
+
       async function init() {
         await loadSavedData();
         setupPhotoSlots();
@@ -2120,20 +2133,20 @@ Here's to another beautiful year of us creating unforgettable memories together!
 
         // Auto-load bundled song
         bgAudio.src = 'song.mp3';
-        bgAudio.volume = 0.75;
+        bgAudio.volume = 0.85;
         bgAudio.loop = true;
-        bgAudio.play().then(() => {
-          if (musicBars) musicBars.style.display = 'flex';
-          if (musicBtnText) musicBtnText.textContent = 'we fell in love ♪';
-        }).catch(() => {
-          // Autoplay blocked — resume on first tap
-          showToast('Tap anywhere to play music 🎵');
-          document.addEventListener('click', () => {
-            bgAudio.play().then(() => {
-              if (musicBars) musicBars.style.display = 'flex';
-              if (musicBtnText) musicBtnText.textContent = 'we fell in love ♪';
-            }).catch(() => {});
-          }, { once: true });
+
+        startMusic();
+
+        // Ensure audio starts seamlessly on any tap/scroll/touch/keypress
+        const handleFirstInteraction = () => {
+          startMusic();
+          ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach(evt => {
+            window.removeEventListener(evt, handleFirstInteraction);
+          });
+        };
+        ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown'].forEach(evt => {
+          window.addEventListener(evt, handleFirstInteraction, { once: true, passive: true });
         });
 
         // Start animation loop
